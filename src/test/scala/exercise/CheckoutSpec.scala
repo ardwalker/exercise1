@@ -33,4 +33,16 @@ class CheckoutSpec extends AnyFlatSpec with Matchers {
     Checkout.scan(List(Apple,Apple,Orange)) shouldEqual 85
   }
 
+  "It" should "scan oranges on 3 for the price of 2" in {
+    Checkout.scan(List(Orange,Orange,Orange)) shouldEqual 50
+  }
+
+  "It" should "scan 4 oranges on 3 for the price of 2" in {
+    Checkout.scan(List(Orange,Orange,Orange,Orange)) shouldEqual 75
+  }
+
+  "It" should "scan apples and oranges at offer price" in {
+    Checkout.scan(List(Apple,Apple,Orange,Orange,Orange)) shouldEqual 110
+  }
+
 }
