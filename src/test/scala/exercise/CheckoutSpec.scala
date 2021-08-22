@@ -1,5 +1,6 @@
 package exercise
 
+import exercise.Item.{Apple, Orange}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -9,11 +10,23 @@ class CheckoutSpec extends AnyFlatSpec with Matchers {
   }
 
   "It" should "scan an apple" in {
-    Checkout.scan(List("Apple")) shouldEqual 60
+    Checkout.scan(List(Apple)) shouldEqual 60
   }
 
   "It" should "scan an orange" in {
-    Checkout.scan(List("Orange")) shouldEqual 25
+    Checkout.scan(List(Orange)) shouldEqual 25
+  }
+
+  "It" should "scan 2 apples" in {
+    Checkout.scan(List(Apple,Apple)) shouldEqual 120
+  }
+
+  "It" should "scan 2 oranges" in {
+    Checkout.scan(List(Orange,Orange)) shouldEqual 50
+  }
+
+  "It" should "scan apples and oranges" in {
+    Checkout.scan(List(Apple,Orange)) shouldEqual 85
   }
 
 }
